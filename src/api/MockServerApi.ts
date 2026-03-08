@@ -100,77 +100,77 @@ function getFishData(): Fish[] {
 const RECIPES_BY_SPECIES: Record<string, Recipe[]> = {
   'Yellowfin Tuna': [
     {
-      title: 'Seared Ahi with Sesame-Ginger Glaze',
+      title: 'Seared Ahi Tuna Steaks',
       img_url:
-        'https://www.fisheries.noaa.gov/s3//styles/original/s3/2022-08/640x427-Tuna-Yellowfin-NOAAFisheries.png',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/14231/seared-ahi-tuna-steaks/',
+        'https://www.allrecipes.com/thmb/4zuqg_WLepWOgd-xHArOTLyspss=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/160099-seared-ahi-tuna-steaks-DDMFS-4x3-26f4691e91bd434e9d96c1c601608cbc.jpg',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/160099/seared-ahi-tuna-steaks/',
     },
     {
-      title: 'Yellowfin Tuna Poke Bowl',
+      title: 'Ahi Tuna Poke',
       img_url:
-        'https://cdn.prod.website-files.com/64c871291cf9e6192ef11f7a/66690d0f15477364171dd0ee_Yellowfin%20Tuna%20Species%20Guide_hero%20banner_2880x1800.jpg',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/220219/hawaiian-poke/',
+        'https://www.allrecipes.com/thmb/E7b8sgI8B17hpSXQYkEFm2XzLqo=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/12870-ahi-tuna-poke-beauty1-4x3-dea05e5e824b4b1987f78202887da37a.jpg',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/12870/ahi-poke-basic/',
     },
     {
-      title: 'Grilled Tuna Niçoise',
+      title: 'Avocado and Tuna Tapas',
       img_url:
-        'https://www.fisheries.noaa.gov/s3//styles/original/s3/2022-08/640x427-Tuna-Yellowfin-NOAAFisheries.png',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/8720/nicoise-salad/',
+        'https://www.allrecipes.com/thmb/PDDLosQL0MAqXvKJeHdGSVii9HI=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/139620-avocado-and-tuna-tapas-VAT-006-4x3-f90efeb69f774162a903ec20cd5880ac.jpg',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/139620/avocado-and-tuna-tapas/',
     },
   ],
   'Sockeye Salmon': [
     {
-      title: 'Pan-Seared Sockeye with Lemon Dill',
+      title: 'Cedar Planked Salmon',
       img_url:
-        'https://wildsalmoncenter.org/wp-content/uploads/2025/10/kspencer_sockeye-1024x427.jpg',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/22566/pan-seared-salmon-i/',
+        'https://www.allrecipes.com/thmb/TFZLzUReiK_vjdBC5ZABwDpVbJw=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/AR-109297-cedar-planked-salmon-DDMFS-4x3-591545d0a0b0436bba4830f3c4740ecc.jpg',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/109297/cedar-planked-salmon/',
     },
     {
-      title: 'Honey-Glazed Sockeye Fillet',
-      img_url: 'https://upload.wikimedia.org/wikipedia/commons/7/76/Sockeye_salmon_swimming_right.jpg',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/163443/glazed-salmon/',
+      title: 'Best Salmon Patties',
+      img_url: 'https://www.allrecipes.com/thmb/ISXCK6ylDf-zcBMHRCjvg3iOy6g=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/9401-salmon-patties-DDMFS-beauty-4x3-BG-31797-3b64b196787243dab650d34fddb2969f.jpg',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/9401/salmon-patties-i/',
     },
     {
       title: 'Sockeye Salmon Chowder',
       img_url:
-        'https://wildsalmoncenter.org/wp-content/uploads/2025/10/kspencer_sockeye-1024x427.jpg',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/23090/salmon-chowder/',
+        'https://www.allrecipes.com/thmb/2qBfnZ5PG9aeiPhqlo2_NnMegjk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/26463-salmon-chowder-DDMFS-4x3-4530-540a4829cacc4f8f9db3ace5c1347fa8.jpg',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/26463/salmon-chowder/',
     },
   ],
   'Pacific Halibut': [
     {
-      title: 'Butter-Basted Halibut with Capers',
-      img_url: 'https://www.fisheries.noaa.gov/s3//dam-migration/900x600-pacific-halibut-noaa.jpg',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/164614/butter-baked-halibut/',
+      title: 'Grilled Halibut with Cilantro Garlic Butter',
+      img_url: 'https://www.allrecipes.com/thmb/b501JCbeREeWAN4acaHkAbCy5Eg=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/1026782-grilled-halibut-with-cilantro-garlic-butter-naples34102-4x3-1-0f5b67ef051045d4b87454c40941ae3d.jpg',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/103971/grilled-halibut-with-cilantro-garlic-butter/',
     },
     {
-      title: 'Halibut Tacos with Mango Salsa',
+      title: 'Hearty Halibut Chowder',
       img_url:
-        'https://www.fisheries.noaa.gov/s3//styles/original/s3/2022-10/640x427-Halibut-Pacific-NOAAFisheries.png',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/93742/halibut-fish-tacos/',
+        'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1885760.jpg&q=60&c=sc&poi=auto&orient=true&h=512',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/164554/hearty-halibut-chowder/',
     },
     {
-      title: 'Poached Halibut in White Wine',
-      img_url: 'https://www.fisheries.noaa.gov/s3//dam-migration/900x600-pacific-halibut-noaa.jpg',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/35852/poached-halibut/',
+      title: 'Pan-Roasted Halibut with Clamshell Mushrooms and Lemon Butter Sauce',
+      img_url: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2023%2F01%2F13%2F1100742-pan-roasted-halibut-with-clamshell-mushrooms-and-lemon-butter-sauce-Chef-John-1x1-1.jpg&q=60&c=sc&poi=auto&orient=true&h=512',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/236504/pan-roasted-halibut-with-clamshell-mushrooms-and-lemon-butter-sauce/',
     },
   ],
-  Tilapia: [
+  'Tilapia': [
     {
-      title: 'Lemon Garlic Baked Tilapia',
-      img_url: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Oreochromis-niloticus-Nairobi.JPG',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/21014/lemon-garlic-tilapia/',
+      title: 'Coconut Tilapia with Apricot Dipping Sauce',
+      img_url: 'https://www.allrecipes.com/thmb/jEUn_GFBvFjwqFjjrRTjrmUPJjA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/104789-Coconut-Tilapia-with-Apricot-Dipping-Sauce-ekk0118-4x3-1-a1a46d275903468cada705e3d635240b.jpg',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/104789/coconut-tilapia-with-apricot-dipping-sauce/',
     },
     {
-      title: 'Parmesan-Crusted Tilapia',
+      title: 'Lemon Garlic Tilapia',
       img_url:
-        'https://www.alimentarium.org/sites/default/files/media/image/2016-06/WEB---%20tilapia%20---_0.png',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/20040/parmesan-crusted-tilapia/',
+        'https://www.allrecipes.com/thmb/wi-rdotDR2tfuWHy1WPJ5GsOJe0=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/89261-lemon-garlic-tilapia-DDMFS-4x3-febefb0fdfe34d4ea855eaeac04fc470.jpg',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/89261/lemon-garlic-tilapia/',
     },
     {
-      title: 'Spicy Tilapia Fish Tacos',
-      img_url: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Oreochromis-niloticus-Nairobi.JPG',
-      recipe_page_url: 'https://www.allrecipes.com/recipe/175029/spicy-tilapia-fish-tacos/',
+      title: 'Tilapia Scampi',
+      img_url: 'https://www.allrecipes.com/thmb/AZD-12Lg_WwVK4Ooa4NvivC1e-Q=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/5130567-tilapia-scampi-naples34102-4x3-1-693c04bdf73548c1be329d2449faacb7.jpg',
+      recipe_page_url: 'https://www.allrecipes.com/recipe/167052/tilapia-scampi/',
     },
   ],
 };
