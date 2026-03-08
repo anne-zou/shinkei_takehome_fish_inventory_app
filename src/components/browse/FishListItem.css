@@ -130,6 +130,11 @@
   color: var(--accent);
 }
 
+.fish-item-price-unit {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
 .fish-item-weight,
 .fish-item-region {
   font-size: 13px;

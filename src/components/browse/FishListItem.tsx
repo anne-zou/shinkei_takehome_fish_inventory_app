@@ -57,8 +57,9 @@ export default function FishListItem({ fish }: Props) {
 
         <div className="fish-item-meta">
           <span className="fish-item-price">${fish.price.toFixed(2)}</span>
-          <span className="fish-item-dot" />
           <span className="fish-item-weight">{fish.harvest_weight} kg</span>
+          <span className="fish-item-dot" />
+          <span className="fish-item-price-unit">${(fish.price / fish.harvest_weight).toFixed(2)}/kg</span>
           <span className="fish-item-dot" />
           <span className="fish-item-region">{fish.harvest_region_name}</span>
         </div>
