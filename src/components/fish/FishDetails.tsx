@@ -55,7 +55,7 @@ export default function FishDetails({ fish }: Props) {
         </div>
         <div className="fish-details-hero-right">
           <span className="fish-details-price">${fish.price.toFixed(2)}</span>
-          <span className="fish-details-price-unit">/ kg</span>
+          <span className="fish-details-price-unit">${(fish.price / fish.harvest_weight).toFixed(2)} / kg</span>
         </div>
       </div>
 

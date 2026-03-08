@@ -31,15 +31,15 @@ const SORT_OPTIONS: { value: SortField; label: string }[] = [
   { value: 'price', label: 'Price' },
   { value: 'harvest_weight', label: 'Weight' },
   { value: 'harvest_date', label: 'Harvest Date' },
-  { value: 'optimal_consumption_date', label: 'Optimal Consumption' },
-  { value: 'expiration_date', label: 'Expiration Date' },
-  { value: 'quality_score', label: 'Quality Score' },
+  { value: 'optimal_consumption_date', label: 'Optimal Consumption Date (Processed fish only)' },
+  { value: 'expiration_date', label: 'Expiration Date (Processed fish only)' },
+  { value: 'quality_score', label: 'Quality Score (Processed fish only)' },
 ];
 
 const DATE_FIELD_OPTIONS = [
   { value: 'harvest_date', label: 'Harvest Date' },
-  { value: 'optimal_consumption_date', label: 'Optimal Consumption' },
-  { value: 'expiration_date', label: 'Expiration Date' },
+  { value: 'optimal_consumption_date', label: 'Optimal Consumption Date (Processed fish only)' },
+  { value: 'expiration_date', label: 'Expiration Date (Processed fish only)' },
 ] as const;
 
 interface Props {
