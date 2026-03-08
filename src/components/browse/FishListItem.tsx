@@ -71,7 +71,7 @@ export default function FishListItem({ fish }: Props) {
           </div>
           {fish.optimal_consumption_date && (
             <div className="fish-item-date">
-              <span className="fish-item-date-label">Optimal</span>
+              <span className="fish-item-date-label">Best Eaten</span>
               <span className="fish-item-date-value">{formatDate(fish.optimal_consumption_date)}</span>
             </div>
           )}

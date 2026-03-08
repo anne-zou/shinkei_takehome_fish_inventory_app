@@ -68,7 +68,7 @@ export default function FishDetails({ fish }: Props) {
         </div>
 
         <div className="fish-details-stat">
-          <span className="fish-details-stat-label">Optimal Consumption</span>
+          <span className="fish-details-stat-label">Best Eaten</span>
           <span className="fish-details-stat-value">{formatDate(fish.optimal_consumption_date)}</span>
         </div>
 
