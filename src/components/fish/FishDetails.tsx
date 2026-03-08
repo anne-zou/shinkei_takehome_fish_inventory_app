@@ -61,10 +61,6 @@ export default function FishDetails({ fish }: Props) {
 
       {/* Stats grid */}
       <div className="fish-details-stats">
-        <div className="fish-details-stat">
-          <span className="fish-details-stat-label">Weight</span>
-          <span className="fish-details-stat-value">{fish.harvest_weight} kg</span>
-        </div>
 
         <div className="fish-details-stat">
           <span className="fish-details-stat-label">Harvest Date</span>
@@ -79,6 +75,11 @@ export default function FishDetails({ fish }: Props) {
         <div className="fish-details-stat">
           <span className="fish-details-stat-label">Expiration Date</span>
           <span className="fish-details-stat-value">{formatDate(fish.expiration_date)}</span>
+        </div>
+
+        <div className="fish-details-stat">
+          <span className="fish-details-stat-label">Weight</span>
+          <span className="fish-details-stat-value">{fish.harvest_weight} kg</span>
         </div>
 
         {fish.quality_score !== null && (
