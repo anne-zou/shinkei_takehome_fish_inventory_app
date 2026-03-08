@@ -8,6 +8,14 @@
   margin: 0 auto;
 }
 
+/* Top nav row */
+.detail-topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
 /* Back button */
 .detail-back {
   display: inline-flex;
@@ -16,7 +24,6 @@
   font-size: 13px;
   font-weight: 500;
   color: var(--text-muted);
-  margin-bottom: 24px;
   padding: 6px 10px 6px 6px;
   border-radius: var(--radius);
   border: 1px solid transparent;
