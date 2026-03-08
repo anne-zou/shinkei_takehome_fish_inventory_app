@@ -1,22 +1,31 @@
 import { useState } from 'react';
-import type { SortField } from '../../api/types';
+import type { FishStage, SortField } from '../../api/types';
 import './FilterSortBar.css';
 
 export interface BrowseFilters {
+  stages: FishStage[];
   species: string[];
   sortBy: SortField | '';
+  sortDir: 'asc' | 'desc';
   dateField: 'harvest_date' | 'optimal_consumption_date' | 'expiration_date' | '';
   dateStart: string;
   dateEnd: string;
 }
 
 export const DEFAULT_FILTERS: BrowseFilters = {
+  stages: [],
   species: [],
   sortBy: '',
+  sortDir: 'asc',
   dateField: '',
   dateStart: '',
   dateEnd: '',
 };
+
+const STAGE_OPTIONS: { value: FishStage; label: string }[] = [
+  { value: 'HARVESTED', label: 'Unprocessed' },
+  { value: 'PROCESSED', label: 'Processed' },
+];
 
 const SORT_OPTIONS: { value: SortField; label: string }[] = [
   { value: 'price', label: 'Price' },
@@ -47,6 +56,13 @@ export default function FilterSortBar({ allSpecies, filters, resultCount, onFilt
     onFiltersChange({ ...filters, [key]: value });
   }
 
+  function toggleStage(stage: FishStage) {
+    const next = filters.stages.includes(stage)
+      ? filters.stages.filter((s) => s !== stage)
+      : [...filters.stages, stage];
+    setField('stages', next);
+  }
+
   function toggleSpecies(species: string) {
     const next = filters.species.includes(species)
       ? filters.species.filter((s) => s !== species)
@@ -59,6 +75,7 @@ export default function FilterSortBar({ allSpecies, filters, resultCount, onFilt
   }
 
   const hasActiveFilters =
+    filters.stages.length > 0 ||
     filters.species.length > 0 ||
     filters.sortBy !== '' ||
     filters.dateField !== '' ||
@@ -97,18 +114,53 @@ export default function FilterSortBar({ allSpecies, filters, resultCount, onFilt
           {/* Sort */}
           <div className="fsbar-group">
             <label className="fsbar-label">Sort by</label>
-            <select
-              className="fsbar-select"
-              value={filters.sortBy}
-              onChange={(e) => setField('sortBy', e.target.value as SortField | '')}
-            >
-              <option value="">Default</option>
-              {SORT_OPTIONS.map((o) => (
-                <option key={o.value} value={o.value}>
-                  {o.label}
-                </option>
+            <div className="fsbar-sort-row">
+              <select
+                className="fsbar-select"
+                value={filters.sortBy}
+                onChange={(e) => setField('sortBy', e.target.value as SortField | '')}
+              >
+                <option value="">Default</option>
+                {SORT_OPTIONS.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+              <button
+                className={`fsbar-dir-btn ${!filters.sortBy ? 'fsbar-dir-btn--disabled' : ''}`}
+                onClick={() => setField('sortDir', filters.sortDir === 'asc' ? 'desc' : 'asc')}
+                disabled={!filters.sortBy}
+                aria-label={filters.sortDir === 'asc' ? 'Sort ascending' : 'Sort descending'}
+                title={filters.sortDir === 'asc' ? 'Ascending' : 'Descending'}
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+                  {filters.sortDir === 'asc' ? (
+                    <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  ) : (
+                    <path d="M7 12V2M3 6l4-4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  )}
+                </svg>
+                {filters.sortDir === 'asc' ? 'Asc' : 'Desc'}
+              </button>
+            </div>
+          </div>
+
+          {/* Processing stage */}
+          <div className="fsbar-group">
+            <label className="fsbar-label">Processing stage</label>
+            <div className="fsbar-species">
+              {STAGE_OPTIONS.map((o) => (
+                <label key={o.value} className="fsbar-chip">
+                  <input
+                    type="checkbox"
+                    checked={filters.stages.includes(o.value)}
+                    onChange={() => toggleStage(o.value)}
+                  />
+                  <span>{o.label}</span>
+                </label>
               ))}
-            </select>
+            </div>
           </div>
 
           {/* Species */}

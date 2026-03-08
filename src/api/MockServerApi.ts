@@ -34,7 +34,17 @@ function parseCSVLine(line: string): string[] {
 
 function parseDate(dateStr: string | null | undefined): Date | null {
   if (!dateStr?.trim()) return null;
-  const parts = dateStr.trim().split('/');
+  const s = dateStr.trim();
+  // ISO format YYYY-MM-DD (from HTML date inputs)
+  if (s.includes('-')) {
+    const parts = s.split('-');
+    if (parts.length !== 3) return null;
+    const [year, month, day] = parts.map(Number);
+    if (!year || !month || !day) return null;
+    return new Date(year, month - 1, day);
+  }
+  // M/D/YYYY format (from CSV data)
+  const parts = s.split('/');
   if (parts.length !== 3) return null;
   const [month, day, year] = parts.map(Number);
   if (!month || !day || !year) return null;
@@ -189,29 +199,30 @@ function inDateRange(
   return true;
 }
 
-function sortFish(fish: Fish[], sortBy: SortField): Fish[] {
+function sortFish(fish: Fish[], sortBy: SortField, sortDir: 'asc' | 'desc' = 'asc'): Fish[] {
+  const dir = sortDir === 'asc' ? 1 : -1;
   return [...fish].sort((a, b) => {
     switch (sortBy) {
       case 'price':
-        return a.price - b.price;
+        return (a.price - b.price) * dir;
       case 'harvest_weight':
-        return a.harvest_weight - b.harvest_weight;
+        return (a.harvest_weight - b.harvest_weight) * dir;
       case 'quality_score':
-        return (b.quality_score ?? -1) - (a.quality_score ?? -1);
+        return ((a.quality_score ?? -1) - (b.quality_score ?? -1)) * dir;
       case 'harvest_date': {
         const da = parseDate(a.harvest_date)?.getTime() ?? 0;
         const db = parseDate(b.harvest_date)?.getTime() ?? 0;
-        return db - da; // newest first
+        return (da - db) * dir;
       }
       case 'optimal_consumption_date': {
         const da = parseDate(a.optimal_consumption_date)?.getTime() ?? Infinity;
         const db = parseDate(b.optimal_consumption_date)?.getTime() ?? Infinity;
-        return da - db; // soonest first
+        return (da - db) * dir;
       }
       case 'expiration_date': {
         const da = parseDate(a.expiration_date)?.getTime() ?? Infinity;
         const db = parseDate(b.expiration_date)?.getTime() ?? Infinity;
-        return da - db; // soonest first
+        return (da - db) * dir;
       }
     }
   });
@@ -263,7 +274,7 @@ export async function getFishes(params: GetFishesParams = {}): Promise<FishListR
     );
   }
   if (params.sortBy) {
-    data = sortFish(data, params.sortBy);
+    data = sortFish(data, params.sortBy, params.sortDir);
   }
 
   const total = data.length;

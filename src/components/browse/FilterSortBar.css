@@ -115,6 +115,41 @@
   min-width: 200px;
 }
 
+/* Sort row with direction toggle */
+.fsbar-sort-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fsbar-dir-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 7px 12px;
+  background: var(--accent-dim);
+  transition: background 0.12s, color 0.12s;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.fsbar-dir-btn:hover {
+  background: rgba(249, 115, 22, 0.2);
+}
+
+.fsbar-dir-btn--disabled {
+  color: var(--text-muted);
+  border-color: var(--border-light);
+  background: transparent;
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
 /* Species checkboxes */
 .fsbar-species {
   display: flex;

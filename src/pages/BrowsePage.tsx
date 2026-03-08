@@ -41,8 +41,10 @@ export default function BrowsePage() {
       }
 
       const result = await getFishes({
+        stages: currentFilters.stages.length ? currentFilters.stages : undefined,
         species: currentFilters.species.length ? currentFilters.species : undefined,
         sortBy: currentFilters.sortBy || undefined,
+        sortDir: currentFilters.sortBy ? currentFilters.sortDir : undefined,
         limit: PAGE_SIZE,
         offset: currentOffset,
         ...dateParams,

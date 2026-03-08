@@ -56,6 +56,7 @@ export interface GetFishesParams {
   optimalConsumptionStart?: string;
   optimalConsumptionEnd?: string;
   sortBy?: SortField;
+  sortDir?: 'asc' | 'desc';
   limit?: number;
   offset?: number;
 }
