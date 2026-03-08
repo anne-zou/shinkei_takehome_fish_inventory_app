@@ -238,7 +238,7 @@ const delay = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 export async function getFishes(params: GetFishesParams = {}): Promise<FishListResponse> {
   await delay(SIMULATED_DELAY_MS);
 
-  let data = getFishData();
+  let data = [...getFishData()].reverse();
 
   if (params.stages?.length) {
     data = data.filter((f) => params.stages!.includes(f.stage));
@@ -271,6 +271,21 @@ export async function getFishes(params: GetFishesParams = {}): Promise<FishListR
   if (params.minQualityScore !== undefined) {
     data = data.filter(
       (f) => f.quality_score !== null && f.quality_score >= params.minQualityScore!,
+    );
+  }
+  if (params.sortBy === 'quality_score') {
+    data = data.filter((f) => f.quality_score != null);
+  }
+  if (params.sortBy === 'expiration_date' || params.shelfLifeStart || params.shelfLifeEnd) {
+    data = data.filter((f) => f.expiration_date != null && f.expiration_date !== '');
+  }
+  if (
+    params.sortBy === 'optimal_consumption_date' ||
+    params.optimalConsumptionStart ||
+    params.optimalConsumptionEnd
+  ) {
+    data = data.filter(
+      (f) => f.optimal_consumption_date != null && f.optimal_consumption_date !== '',
     );
   }
   if (params.sortBy) {
