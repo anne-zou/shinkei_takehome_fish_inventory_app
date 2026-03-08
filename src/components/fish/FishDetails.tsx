@@ -47,7 +47,9 @@ export default function FishDetails({ fish }: Props) {
       {/* Hero info */}
       <div className="fish-details-hero">
         <div className="fish-details-hero-left">
-          <p className="fish-details-stage">{fish.stage}</p>
+          <p className={`fish-details-stage fish-details-stage--${fish.stage.toLowerCase()}`}>
+            {fish.stage === 'HARVESTED' ? 'UNPROCESSED' : fish.stage}
+          </p>
           <h1 className="fish-details-species">{fish.species_name}</h1>
           <p className="fish-details-region">{fish.harvest_region_name}</p>
         </div>

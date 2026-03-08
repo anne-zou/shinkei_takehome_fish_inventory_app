@@ -40,7 +40,7 @@ export default function FishListItem({ fish }: Props) {
           loading="lazy"
         />
         <span className={`fish-item-stage fish-item-stage--${fish.stage.toLowerCase()}`}>
-          {fish.stage}
+          {fish.stage === 'HARVESTED' ? 'UNPROCESSED' : fish.stage}
         </span>
       </div>
 
