@@ -1,0 +1,228 @@
+.fsbar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+/* Top row — toggle button + result count */
+.fsbar-toprow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.fsbar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  position: relative;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  background: var(--card);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.fsbar-toggle:hover {
+  background: var(--card-hover);
+  border-color: var(--border-light);
+}
+
+.fsbar-toggle--open {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.fsbar-toggle-icon {
+  display: flex;
+  align-items: center;
+  color: inherit;
+}
+
+.fsbar-active-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.fsbar-count {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Expandable panel */
+.fsbar-panel {
+  border-top: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fsbar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fsbar-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Select */
+.fsbar-select {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--text);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%234e6578' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 32px;
+  cursor: pointer;
+  width: fit-content;
+  min-width: 180px;
+  max-width: 100%;
+}
+
+.fsbar-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.fsbar-select:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.fsbar-select--date-field {
+  min-width: 200px;
+}
+
+/* Species checkboxes */
+.fsbar-species {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fsbar-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 100px;
+  padding: 5px 12px 5px 8px;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+  user-select: none;
+}
+
+.fsbar-chip:hover {
+  background: var(--card-hover);
+}
+
+.fsbar-chip input[type='checkbox'] {
+  accent-color: var(--accent);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.fsbar-chip:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent-hover);
+}
+
+/* Date range */
+.fsbar-date-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fsbar-date-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.fsbar-date {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 7px 10px;
+  font-size: 13px;
+  color: var(--text);
+  color-scheme: dark;
+}
+
+.fsbar-date:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.fsbar-date:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.fsbar-date-sep {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* Clear button */
+.fsbar-clear {
+  align-self: flex-start;
+  font-size: 13px;
+  color: var(--text-muted);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 5px 14px;
+  background: transparent;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.fsbar-clear:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Desktop: side-by-side groups */
+@media (min-width: 768px) {
+  .fsbar-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .fsbar-group {
+    min-width: 180px;
+  }
+
+  .fsbar-date-row {
+    flex-direction: column;
+  }
+}

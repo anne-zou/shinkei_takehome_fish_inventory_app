@@ -1,0 +1,65 @@
+.fish-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Loading skeletons */
+.fish-list-skeletons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fish-list-skeleton {
+  height: 110px;
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.fish-list-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 40%,
+    transparent 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Empty state */
+.fish-list-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.fish-list-empty-icon {
+  font-size: 36px;
+  filter: grayscale(1) opacity(0.4);
+}
+
+@media (min-width: 480px) {
+  .fish-list-skeleton {
+    height: 130px;
+  }
+}
