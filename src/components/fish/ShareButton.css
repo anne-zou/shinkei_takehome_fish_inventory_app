@@ -1,0 +1,109 @@
+.share-wrap {
+  position: relative;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: color 0.12s, border-color 0.12s, background 0.12s;
+}
+
+.share-btn:hover {
+  color: var(--text);
+  border-color: var(--border-light);
+  background: var(--card);
+}
+
+.share-popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  width: 196px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+.share-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.12s, background 0.12s;
+}
+
+.share-copy-btn:hover {
+  border-color: var(--border-light);
+  background: var(--card-hover);
+}
+
+.share-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0 10px;
+}
+
+.share-qr-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 8px 2px;
+}
+
+.share-qr-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.share-qr {
+  border-radius: var(--radius);
+  display: block;
+}
+
+.share-qr-skeleton {
+  width: 160px;
+  height: 160px;
+  border-radius: var(--radius);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.share-qr-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 40%,
+    transparent 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
