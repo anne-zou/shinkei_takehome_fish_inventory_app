@@ -8,12 +8,23 @@ import Pagination from '../components/browse/Pagination';
 import './BrowsePage.css';
 
 const PAGE_SIZE = 10;
+const SESSION_KEY = 'browse_state';
+
+function loadSession(): { filters: BrowseFilters; offset: number } | null {
+  try {
+    const raw = sessionStorage.getItem(SESSION_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
 
 export default function BrowsePage() {
-  const [filters, setFilters] = useState<BrowseFilters>(DEFAULT_FILTERS);
+  const session = loadSession();
+  const [filters, setFilters] = useState<BrowseFilters>(session?.filters ?? DEFAULT_FILTERS);
   const [fish, setFish] = useState<Fish[]>([]);
   const [page, setPage] = useState<PageInfo>({ limit: PAGE_SIZE, offset: 0, total: 0 });
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(session?.offset ?? 0);
   const [loading, setLoading] = useState(true);
   const [allSpecies] = useState<string[]>(() => getAllSpecies());
 
@@ -58,6 +69,7 @@ export default function BrowsePage() {
   );
 
   useEffect(() => {
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify({ filters, offset }));
     load(filters, offset);
   }, [filters, offset, load]);
 
