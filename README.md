@@ -2,6 +2,9 @@
 
 A frontend-only demo of a customer-facing web app for browsing Shinkei's fish inventory. Built as part of a fullstack engineer takehome project.
 
+## Demo Video
+https://drive.google.com/file/d/1yzUv_MStSCKhCZSfiHFuzaBrIvtEG27I/view?usp=sharing
+
 ## Overview
 
 The app lets customers browse available fish inventory with filtering, sorting, and pagination, then click into a detail page for each fish.
