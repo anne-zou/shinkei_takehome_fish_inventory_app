@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Dark rounded background -->
+  <rect width="32" height="32" rx="7" fill="#1a1a1a"/>
+  <!-- Fish tail (forked, pointing left) -->
+  <path d="M5,10 L13,16 L5,22 Z" fill="#f97316"/>
+  <!-- Fish body (ellipse, head pointing right) -->
+  <ellipse cx="19" cy="16" rx="9" ry="6.5" fill="#f97316"/>
+  <!-- Eye -->
+  <circle cx="23" cy="13.5" r="1.5" fill="#1a1a1a"/>
+</svg>
