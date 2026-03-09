@@ -1,12 +1,12 @@
-# Shinkei Fish Inventory — Customer Web App
+# Shinkei Fish Inventory
 
-A frontend-only demo for browsing and exploring Shinkei's fish inventory. Built as a fullstack engineer takehome project.
+A frontend-only demo of a customer-facing web app for browsing Shinkei's fish inventory. Built as part of a fullstack engineer takehome project.
 
 ## Overview
 
-The app lets customers browse available fish inventory with filtering, sorting, and pagination, then drill into a detail page for each fish showing quality stats, harvest info, and curated recipes.
+The app lets customers browse available fish inventory with filtering, sorting, and pagination, then click into a detail page for each fish.
 
-All data is sourced from a CSV file parsed at build time through a mock API layer — no backend required.
+All data is mocked and sourced from a CSV file parsed at build time through a mock API layer — no backend.
 
 ## Tech Stack
 
@@ -31,17 +31,15 @@ Then open [http://localhost:5173](http://localhost:5173).
 |---|---|
 | `npm run dev` | Start dev server |
 | `npm run build` | Type-check and build for production |
-| `npm run lint` | Run ESLint |
 
 ## Features
 
-- Browse fish inventory with filters by species, stage, region, and harvest date range
-- Sort by price, quality score, harvest date, or best eaten date
-- Paginated list with shimmer skeleton loading states
-- Fish detail page with quality stats, pricing, and harvest info
-- Per-species recipe cards
-- Share button with copy-link and QR code popover (generated client-side)
-- Filter and page state persisted across navigation
+- Paginated list for browsing fish inventory 
+- Filter by species, stage, harvest date range, best eaten date range, and expiration date range
+- Sort by price, weight, quality score, harvest date, best eaten date, or expiration date
+- Fish detail page displaying all information on the fish and recipe cards (static mocks)
+- Detail page share button with copy-link and QR code popover
+- Filter, sort, and pagination state persists across navigation
 
 ## Project Structure
 
@@ -68,4 +66,4 @@ src/
 - Species: Yellowfin Tuna, Sockeye Salmon, Pacific Halibut, Tilapia
 - Stages: `HARVESTED` (shown as "Unprocessed") and `PROCESSED`
 - Regions may contain commas (e.g. "Santa Barbara Channel, CA") — handled by the CSV parser
-- 3 static recipe mocks per species defined in `MockServerApi.ts`
+- 12 static recipe mocks per species defined in `MockServerApi.ts`
