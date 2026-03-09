@@ -1,20 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
+import { QRCodeSVG } from 'qrcode.react';
 import './ShareButton.css';
 
 export default function ShareButton() {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [qrLoaded, setQrLoaded] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const url = window.location.href;
 
   useEffect(() => {
     if (!open) return;
     function onPointerDown(e: PointerEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) { setOpen(false); setQrLoaded(false); }
+      if (ref.current && !ref.current.contains(e.target as Node)) { setOpen(false); }
     }
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') { setOpen(false); setQrLoaded(false); }
+      if (e.key === 'Escape') { setOpen(false); }
     }
     document.addEventListener('pointerdown', onPointerDown);
     document.addEventListener('keydown', onKeyDown);
@@ -31,13 +31,11 @@ export default function ShareButton() {
     });
   }
 
-  const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&color=f97316&bgcolor=1a1a1a&data=${encodeURIComponent(url)}`;
-
   return (
     <div className="share-wrap" ref={ref}>
       <button
         className="share-btn"
-        onClick={() => { setOpen((v) => !v); setQrLoaded(false); }}
+        onClick={() => setOpen((v) => !v)}
         aria-label="Share this page"
         aria-expanded={open}
       >
@@ -76,15 +74,12 @@ export default function ShareButton() {
 
           <p className="share-qr-label">Scan to open</p>
           <div className="share-qr-wrap">
-            {!qrLoaded && <div className="share-qr-skeleton" aria-hidden />}
-            <img
-              src={qrSrc}
-              alt="QR code for this page"
-              width={160}
-              height={160}
+            <QRCodeSVG
+              value={url}
+              size={160}
+              fgColor="#f97316"
+              bgColor="#1a1a1a"
               className="share-qr"
-              style={{ display: qrLoaded ? 'block' : 'none' }}
-              onLoad={() => setQrLoaded(true)}
             />
           </div>
         </div>
